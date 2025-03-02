@@ -79,7 +79,7 @@
     #chatbot-header {
       background: linear-gradient(135deg, #4A90E2, #357ABD);
       color: #fff;
-      padding: 10px;
+      padding: 5px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -88,8 +88,8 @@
     }
 
     #chatbot-avatar {
-      width: 30px;
-      height: 30px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
       margin-right: 10px;
     }
