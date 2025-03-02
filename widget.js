@@ -2,7 +2,7 @@
   // Criar botão de abertura do chatbot
   const chatButton = document.createElement("div");
   chatButton.id = "chatbot-button";
-  chatButton.innerHTML = "";
+  chatButton.innerHTML = '<i class="fas fa-comments"></i>'; // Ícone do botão
   document.body.appendChild(chatButton);
 
   // Criar container do chatbot
@@ -12,14 +12,14 @@
   chatbotContainer.innerHTML = `
     <div id="chatbot-header">
       <img src="https://i.postimg.cc/tgY1RSFP/Blue-Minimalist-Artificial-Intelligence-Technology-Logo.png" alt="Logo" id="chatbot-avatar" aria-label="Logo da empresa"/>
-      <span>Nome da Empresa</span>
+      <span>Genius</span>
       <button id="chatbot-close" aria-label="Fechar Chatbot">×</button>
     </div>
     <div id="chatbot-body">
       <div id="chatbot-messages"></div>
       <div id="chatbot-typing-indicator" style="display: none;">...</div>
       <div id="chatbot-input-container">
-      <input type="text" id="chatbot-input" placeholder="Digite sua mensagem..." aria-label="Digite sua mensagem"/>
+        <input type="text" id="chatbot-input" placeholder="Digite sua mensagem..." aria-label="Digite sua mensagem"/>
       </div>
       <button id="chatbot-send" aria-label="Enviar mensagem">Enviar</button>
     </div>
@@ -31,6 +31,7 @@
   const style = document.createElement("style");
   style.innerHTML = `
     @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+    @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
 
     body {
       font-family: 'Roboto', sans-serif;
@@ -42,7 +43,7 @@
       right: 20px;
       width: 50px;
       height: 50px;
-      background: linear-gradient(135deg,rgb(120, 165, 217),rgb(89, 140, 191));
+      background: linear-gradient(135deg, rgb(120, 165, 217), rgb(89, 140, 191));
       color: #fff;
       border-radius: 50%;
       display: flex;
@@ -83,9 +84,12 @@
       align-items: center;
       justify-content: space-between;
       font-size: 16px;
+      border-radius: 12px 12px 0 0;
     }
 
     #chatbot-avatar {
+      width: 30px;
+      height: 30px;
       border-radius: 50%;
       margin-right: 10px;
     }
@@ -131,7 +135,6 @@
     }
 
     #chatbot-input {
-      
       width: 100%;
       padding: 10px;
       border: none;
@@ -155,6 +158,7 @@
       padding: 5px;
       background: #f1f5f9;
       font-size: 12px;
+      border-radius: 0 0 12px 12px;
     }
 
     #chatbot-typing-indicator {
@@ -165,50 +169,49 @@
     }
 
     #chatbot-close {
-        background: none;
-        border: none;
-        color: white;
-        font-size: 20px;
-        cursor: pointer;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
     }
 
     @media (max-width: 480px) {
-        #chatbot-button{
-            bottom:10px;
-            right: 10px;
-        }
+      #chatbot-button {
+        bottom: 10px;
+        right: 10px;
+      }
 
-        #chatbot-widget {
-            bottom: 60px;
-            right: 10px;
-            width: 90%;
-        }
+      #chatbot-widget {
+        bottom: 60px;
+        right: 10px;
+        width: 90%;
+      }
     }
 
-    @media (min-width: 768px){
-        #chatbot-widget{
-            width: 400px;
-        }
+    @media (min-width: 768px) {
+      #chatbot-widget {
+        width: 400px;
+      }
     }
-
   `;
   document.head.appendChild(style);
 
   // Toggle do chatbot
   chatButton.onclick = function() {
-    if(chatbotContainer.style.display === "none"){
-        chatbotContainer.style.display = "flex";
-        chatbotContainer.classList.add("show");
+    if (chatbotContainer.style.display === "none") {
+      chatbotContainer.style.display = "flex";
+      chatbotContainer.classList.add("show");
     } else {
-        chatbotContainer.classList.remove("show");
-        setTimeout(()=>{chatbotContainer.style.display = "none";}, 500);
+      chatbotContainer.classList.remove("show");
+      setTimeout(() => { chatbotContainer.style.display = "none"; }, 500);
     }
   };
 
-    document.getElementById("chatbot-close").onclick = function(){
-        chatbotContainer.classList.remove("show");
-        setTimeout(()=>{chatbotContainer.style.display = "none";}, 500);
-    };
+  document.getElementById("chatbot-close").onclick = function() {
+    chatbotContainer.classList.remove("show");
+    setTimeout(() => { chatbotContainer.style.display = "none"; }, 500);
+  };
 
   // Enviar mensagem
   document.getElementById("chatbot-send").onclick = async function() {
