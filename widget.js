@@ -11,7 +11,7 @@
   chatbotContainer.style.display = "none";
   chatbotContainer.innerHTML = `
     <div id="chatbot-header">
-      <img src="logo.png" alt="Logo" id="chatbot-avatar" aria-label="Logo da empresa"/>
+      <img src="https://postimg.cc/KKhcJ5qv" alt="Logo" id="chatbot-avatar" aria-label="Logo da empresa"/>
       <span>Nome da Empresa</span>
       <button id="chatbot-close" aria-label="Fechar Chatbot">×</button>
     </div>
